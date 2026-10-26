@@ -29,8 +29,8 @@ export default function App() {
       `*Vehículo:* ${formData.tipoVehiculo}%0A` +
       `*Detalle:* ${formData.mensaje}`;
 
-    // Enlace directo a tu WhatsApp corporativo (+506 6096-4368)
-    const url = `https://wa.me/50660964368?text=${mensajeWA}`;
+    // Enlace directo a tu WhatsApp corporativo (+506 6093-4368)
+    const url = `https://wa.me/50660934368?text=${mensajeWA}`;
     window.open(url, '_blank');
   };
 
@@ -129,7 +129,7 @@ export default function App() {
               📩 Escríbenos
             </a>
             <a
-              href="https://wa.me/50660964368?text=Hola,%20deseo%20agendar%20una%20cita"
+              href="https://wa.me/50660934368?text=Hola,%20deseo%20agendar%20una%20cita"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-warning fw-bold text-dark rounded-pill px-3 px-md-4"
@@ -384,7 +384,7 @@ export default function App() {
                   <strong className="d-block text-dark">
                     WhatsApp Directo:
                   </strong>
-                  <span className="text-secondary">+506 6096-4368</span>
+                  <span className="text-secondary">+506 6093-4368</span>
                 </div>
               </div>
 
@@ -557,7 +557,7 @@ export default function App() {
 
       {/* BOTÓN FLOTANTE DE WHATSAPP */}
       <a
-        href="https://wa.me/50660964368?text=Hola,%20deseo%20agendar%20una%20cita"
+        href="https://wa.me/50660934368?text=Hola,%20deseo%20agendar%20una%20cita"
         className="position-fixed bottom-0 end-0 m-4 btn btn-success rounded-circle p-3 shadow-lg d-flex align-items-center justify-content-center"
         style={{ width: "60px", height: "60px", zIndex: 1050 }}
         target="_blank"

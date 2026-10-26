@@ -127,7 +127,7 @@ export default function App() {
               📩 Escríbenos
             </a>
             <a
-              href="https://wa.me/50660964368?text=Hola,%20deseo%20agendar%20una%20cita"
+              href="https://wa.me/50660934368?text=Hola,%20deseo%20agendar%20una%20cita"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-warning fw-bold text-dark rounded-pill px-3 px-md-4"
@@ -387,7 +387,7 @@ export default function App() {
                   <strong className="d-block text-dark">
                     WhatsApp Directo:
                   </strong>
-                  <span className="text-secondary">+506 6096-4368</span>
+                  <span className="text-secondary">+506 6093-4368</span>
                 </div>
               </div>
 
@@ -405,7 +405,7 @@ export default function App() {
               <div className="mt-4 pt-3 border-top">
                 <p className="fw-bold text-dark mb-2">Síguenos en Facebook:</p>
                 <a
-                  href="https://facebook.com"
+                  href="https://www.facebook.com/p/Taller-Wayo-Powersports-61575063284348/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-outline-primary fw-bold d-inline-flex align-items-center gap-2"

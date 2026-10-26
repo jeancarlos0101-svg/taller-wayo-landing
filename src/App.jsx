@@ -11,8 +11,6 @@ export default function App() {
     mensaje: "",
   });
 
-  const [enviado, setEnviado] = useState(false);
-
   const handleInputChange = (e) => {
     setFormData({
       ...formData,
@@ -20,16 +18,20 @@ export default function App() {
     });
   };
 
+  // FUNCIÓN ACTUALIZADA: Redirige directamente a WhatsApp con el mensaje estructurado
   const handleSubmit = (e) => {
     e.preventDefault();
-    setEnviado(true);
-    setTimeout(() => setEnviado(false), 5000);
-    setFormData({
-      nombre: "",
-      telefono: "",
-      tipoVehiculo: "Auto",
-      mensaje: "",
-    });
+
+    // Estructurar el mensaje con los datos del formulario
+    const mensajeWA = `*NUEVA CONSULTA - TALLER WAYO POWERSPORTS*%0A%0A` +
+      `*Nombre:* ${formData.nombre}%0A` +
+      `*Teléfono:* ${formData.telefono}%0A` +
+      `*Vehículo:* ${formData.tipoVehiculo}%0A` +
+      `*Detalle:* ${formData.mensaje}`;
+
+    // Enlace directo a tu WhatsApp corporativo (+506 6096-4368)
+    const url = `https://wa.me/50660964368?text=${mensajeWA}`;
+    window.open(url, '_blank');
   };
 
   const servicios = {
@@ -110,7 +112,7 @@ export default function App() {
           <div className="d-flex align-items-center gap-3">
             <div className="d-none d-md-flex align-items-center me-2">
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/p/Taller-Wayo-Powersports-61575063284348/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-light text-decoration-none fs-5 d-flex align-items-center gap-1 hover-warning"
@@ -127,7 +129,7 @@ export default function App() {
               📩 Escríbenos
             </a>
             <a
-              href="https://wa.me/50660934368?text=Hola,%20deseo%20agendar%20una%20cita"
+              href="https://wa.me/50660964368?text=Hola,%20deseo%20agendar%20una%20cita"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-warning fw-bold text-dark rounded-pill px-3 px-md-4"
@@ -257,7 +259,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* 4. CARRUSEL DE FOTOS CON LAS NUEVAS IMÁGENES */}
+      {/* 4. CARRUSEL DE FOTOS */}
       <section id="galeria" className="py-5 bg-dark text-white">
         <div className="container py-3">
           <div className="text-center mb-5">
@@ -299,57 +301,55 @@ export default function App() {
                 </div>
                 <div className="carousel-inner">
                   {/* Slide 1: Mecánico con escáner y BMW */}
-            <div className="carousel-item active">
-              <img 
-                src="taller-escaner.jpg.jfif" 
-                className="d-block w-100 object-fit-cover" 
-                style={{ height: '400px' }} 
-                alt="Mecánico escaneando con BMW al lado" 
-              />
-              <div className="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded-3 p-2">
-                <h5>Diagnóstico con Escáner</h5>
-                <p className="small mb-0">Tecnología de punta y escáner avanzado para vehículos de alta gama.</p>
-              </div>
-            </div>
+                  <div className="carousel-item active" data-bs-interval="4000">
+                    <img 
+                      src="taller-escaner.jpg.jfif" 
+                      className="d-block w-100 object-fit-cover" 
+                      style={{ height: '400px' }} 
+                      alt="Mecánico escaneando con BMW al lado" 
+                    />
+                    <div className="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded-3 p-2">
+                      <h5>Diagnóstico con Escáner</h5>
+                      <p className="small mb-0">Tecnología de punta y escáner avanzado para vehículos de alta gama.</p>
+                    </div>
+                  </div>
 
-            {/* Slide 2: Moto de cross y moto pistera */}
-            <div className="carousel-item">
-              <img 
-                src="taller-motos.jpg.jfif" 
-                className="d-block w-100 object-fit-cover" 
-                style={{ height: '400px' }} 
-                alt="Moto de cross y moto pistera" 
-              />
-              <div className="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded-3 p-2">
-                <h5>Motos Cross y Pisteras</h5>
-                <p className="small mb-0">Especialistas en rendimiento para motos de alta y baja cilindrada.</p>
-              </div>
-            </div>
+                  {/* Slide 2: Moto de cross y moto pistera */}
+                  <div className="carousel-item" data-bs-interval="4000">
+                    <img 
+                      src="taller-motos.jpg.jfif" 
+                      className="d-block w-100 object-fit-cover" 
+                      style={{ height: '400px' }} 
+                      alt="Moto de cross y moto pistera" 
+                    />
+                    <div className="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded-3 p-2">
+                      <h5>Motos Cross y Pisteras</h5>
+                      <p className="small mb-0">Especialistas en rendimiento para motos de alta y baja cilindrada.</p>
+                    </div>
+                  </div>
 
-            {/* Slide 3: Dos buggies en el taller */}
-            <div className="carousel-item">
-              <img 
-                src="taller-buggies.jpg.jfif" 
-                className="d-block w-100 object-fit-cover" 
-                style={{ height: '400px' }} 
-                alt="Buggies listos en el taller" 
-              />
-              <div className="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded-3 p-2">
-                <h5>Preparación Off-Road y Buggies</h5>
-                <p className="small mb-0">Mantenimiento general, suspensión, ejes y tracción pesada.</p>
-              </div>
+                  {/* Slide 3: Dos buggies en el taller */}
+                  <div className="carousel-item" data-bs-interval="4000">
+                    <img 
+                      src="taller-buggies.jpg.jfif" 
+                      className="d-block w-100 object-fit-cover" 
+                      style={{ height: '400px' }} 
+                      alt="Buggies listos en el taller" 
+                    />
+                    <div className="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded-3 p-2">
+                      <h5>Preparación Off-Road y Buggies</h5>
+                      <p className="small mb-0">Mantenimiento general, suspensión, ejes y tracción pesada.</p>
+                    </div>
                   </div>
                 </div>
+
                 <button
                   className="carousel-control-prev"
                   type="button"
                   data-bs-target="#tallerCarousel"
                   data-bs-slide="prev"
                 >
-                  <span
-                    className="carousel-control-prev-icon"
-                    aria-hidden="true"
-                  ></span>
+                  <span className="carousel-control-prev-icon" aria-hidden="true"></span>
                   <span className="visually-hidden">Anterior</span>
                 </button>
                 <button
@@ -358,10 +358,7 @@ export default function App() {
                   data-bs-target="#tallerCarousel"
                   data-bs-slide="next"
                 >
-                  <span
-                    className="carousel-control-next-icon"
-                    aria-hidden="true"
-                  ></span>
+                  <span className="carousel-control-next-icon" aria-hidden="true"></span>
                   <span className="visually-hidden">Siguiente</span>
                 </button>
               </div>
@@ -377,8 +374,8 @@ export default function App() {
             <div className="col-lg-6">
               <h2 className="fw-bold mb-3">¿Tienes alguna consulta técnica?</h2>
               <p className="text-secondary mb-4">
-                Déjanos tus datos en el formulario o comunícate directamente con
-                nuestro equipo de mecánicos.
+                Déjanos tus datos en el formulario para abrir un chat directo con
+                nuestro equipo de mecánicos en WhatsApp.
               </p>
 
               <div className="d-flex align-items-center mb-3 gap-3">
@@ -387,7 +384,7 @@ export default function App() {
                   <strong className="d-block text-dark">
                     WhatsApp Directo:
                   </strong>
-                  <span className="text-secondary">+506 6093-4368</span>
+                  <span className="text-secondary">+506 6096-4368</span>
                 </div>
               </div>
 
@@ -419,18 +416,8 @@ export default function App() {
             <div className="col-lg-6">
               <div className="card border-0 shadow-lg p-4 p-md-5 rounded-4 bg-light">
                 <h3 className="h4 fw-bold mb-3">
-                  Solicita información o cotización
+                  Cotización Rápida por WhatsApp
                 </h3>
-
-                {enviado && (
-                  <div
-                    className="alert alert-success alert-dismissible fade show"
-                    role="alert"
-                  >
-                    ¡Mensaje enviado con éxito! Nos pondremos en contacto
-                    contigo muy pronto.
-                  </div>
-                )}
 
                 <form onSubmit={handleSubmit}>
                   <div className="mb-3">
@@ -467,7 +454,7 @@ export default function App() {
                       value={formData.telefono}
                       onChange={handleInputChange}
                       required
-                      placeholder="Ej. +506 8888-8888"
+                      placeholder="Ej. 8888-8888"
                     />
                   </div>
 
@@ -514,9 +501,9 @@ export default function App() {
 
                   <button
                     type="submit"
-                    className="btn btn-warning w-100 fw-bold py-2 text-dark shadow-sm"
+                    className="btn btn-success w-100 fw-bold py-2 shadow-sm fs-5"
                   >
-                    Enviar Mensaje
+                    <i className="bi bi-whatsapp me-2"></i> Enviar a WhatsApp
                   </button>
                 </form>
               </div>
@@ -556,7 +543,7 @@ export default function App() {
             </a>
             <span className="text-secondary">|</span>
             <a
-              href="https://facebook.com"
+              href="https://www.facebook.com/p/Taller-Wayo-Powersports-61575063284348/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-warning fs-5"
